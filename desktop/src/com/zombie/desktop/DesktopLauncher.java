@@ -3,8 +3,6 @@ package com.zombie.desktop;
 import com.badlogic.gdx.Files;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import com.zombie.api.Booking;
-import com.zombie.api.BookingException;
 import com.zombie.api.CabBookingService;
 import com.zombie.client.Main;
 import com.zombie.client.utils.Constants;
@@ -31,19 +29,13 @@ public class DesktopLauncher implements EmbeddedServletContainerCustomizer {
 	}
 	public static void main (String[] arg) {
 		CabBookingService service = SpringApplication.run(DesktopLauncher.class).getBean(CabBookingService.class);
-		try {
-			Booking booking = service.bookRide("Street 12321");
-			System.out.println(booking.toString());
-		} catch (BookingException e) {
-			e.printStackTrace();
-		}
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		config.title="Zombie Defense";
 		config.width=Constants.GAME_WIDTH;
 		config.height=Constants.GAME_HEIGHT;
 		config.forceExit = true;
 		config.addIcon("icon.png", Files.FileType.Internal);
-		new LwjglApplication(new Main(), config);
+		new LwjglApplication(new Main(service), config);
 	}
 	@Override
 	public void customize(ConfigurableEmbeddedServletContainer configurableEmbeddedServletContainer) {

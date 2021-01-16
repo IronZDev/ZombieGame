@@ -1,14 +1,22 @@
 package com.zombie.client;
 
 import com.badlogic.gdx.Game;
+import com.zombie.api.Booking;
+import com.zombie.api.GameSessionException;
+import com.zombie.api.CabBookingService;
 import com.zombie.client.screens.MainMenu;
 
-import java.util.Collections;
-
 public class Main extends Game {
+	private CabBookingService service;
 
-
-	public Main() {
+	public Main(CabBookingService service) {
+		this.service = service;
+		try {
+			Booking booking = service.bookRide("Street 12321");
+			System.out.println(booking.toString());
+		} catch (GameSessionException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
