@@ -1,0 +1,102 @@
+sprites.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+zombie1
+  rotate: false
+  xy: 1310, 1124
+  size: 452, 548
+  orig: 754, 800
+  offset: 132, 127
+  index: -1
+zombie4
+  rotate: false
+  xy: 398, 2
+  size: 446, 564
+  orig: 754, 800
+  offset: 135, 119
+  index: -1
+zombie5
+  rotate: false
+  xy: 2, 576
+  size: 394, 570
+  orig: 754, 800
+  offset: 161, 116
+  index: -1
+zombie12
+  rotate: false
+  xy: 426, 1132
+  size: 410, 560
+  orig: 754, 800
+  offset: 153, 120
+  index: -1
+zombie2
+  rotate: false
+  xy: 856, 564
+  size: 472, 558
+  orig: 754, 800
+  offset: 122, 122
+  index: -1
+zombie3
+  rotate: false
+  xy: 838, 1132
+  size: 470, 558
+  orig: 754, 800
+  offset: 123, 121
+  index: -1
+zombie8
+  rotate: false
+  xy: 846, 2
+  size: 484, 560
+  orig: 754, 800
+  offset: 116, 121
+  index: -1
+zombie9
+  rotate: false
+  xy: 1332, 562
+  size: 474, 560
+  orig: 754, 800
+  offset: 121, 120
+  index: -1
+zombie6
+  rotate: false
+  xy: 2, 1148
+  size: 422, 566
+  orig: 754, 800
+  offset: 147, 118
+  index: -1
+zombie7
+  rotate: false
+  xy: 1332, 2
+  size: 482, 558
+  orig: 754, 800
+  offset: 117, 122
+  index: -1
+Player
+  rotate: false
+  xy: 2, 1716
+  size: 149, 205
+  orig: 189, 267
+  offset: 28, 34
+  index: -1
+zombie10
+  rotate: false
+  xy: 398, 568
+  size: 456, 562
+  orig: 754, 800
+  offset: 130, 120
+  index: -1
+zombie11
+  rotate: false
+  xy: 2, 2
+  size: 394, 572
+  orig: 754, 800
+  offset: 161, 115
+  index: -1
+bullet
+  rotate: false
+  xy: 2, 1923
+  size: 24, 6
+  orig: 24, 24
+  offset: 0, 9
+  index: -1
