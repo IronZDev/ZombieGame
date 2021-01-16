@@ -54,12 +54,12 @@ project(":desktop") {
         api "com.badlogicgames.gdx:gdx-controllers-desktop:$gdxVersion"
         api "com.badlogicgames.gdx:gdx-controllers-platform:$gdxVersion:natives-desktop"
         api "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
-        implementation group: 'com.caucho', name: 'hessian', version: '4.0.38'
-        implementation "org.springframework.boot:spring-boot-starter-parent:1.5.4.RELEASE"
-        implementation "org.springframework.boot:spring-boot-starter-web:1.5.4.RELEASE"
+        compile group: 'com.caucho', name: 'hessian', version: '4.0.38'
+        compile "org.springframework.boot:spring-boot-starter-parent:1.5.4.RELEASE"
+        compile "org.springframework.boot:spring-boot-starter-web:1.5.4.RELEASE"
 //        implementation "org.springframework.data:spring-data-elasticsearch:3.2.5.RELEASE"
-        //implementation "org.springframework.boot:spring-boot-starter-tomcat:2.2.+"
-        implementation project(":api")
+        compile "org.springframework.boot:spring-boot-starter-tomcat:1.5.4.RELEASE"
+        compile project(":api")
     }
 }
 

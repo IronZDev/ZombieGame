@@ -3,7 +3,9 @@ package com.zombie.desktop;
 import com.badlogic.gdx.Files;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import com.zombie.api.*;
+import com.zombie.api.Booking;
+import com.zombie.api.BookingException;
+import com.zombie.api.CabBookingService;
 import com.zombie.client.Main;
 import com.zombie.client.utils.Constants;
 import org.springframework.boot.SpringApplication;
@@ -30,7 +32,7 @@ public class DesktopLauncher implements EmbeddedServletContainerCustomizer {
 	public static void main (String[] arg) {
 		CabBookingService service = SpringApplication.run(DesktopLauncher.class).getBean(CabBookingService.class);
 		try {
-			Booking booking = service.bookRide("12321");
+			Booking booking = service.bookRide("Street 12321");
 			System.out.println(booking.toString());
 		} catch (BookingException e) {
 			e.printStackTrace();
