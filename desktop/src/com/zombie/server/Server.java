@@ -1,7 +1,7 @@
 package com.zombie.server;
 
 
-import com.zombie.api.CabBookingService;
+import com.zombie.api.GameService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
@@ -16,15 +16,16 @@ import java.util.Properties;
 @ComponentScan
 @EnableAutoConfiguration
 public class Server {
-    @Bean CabBookingService bookingService() {
-        return new CabBookingServiceImpl();
+    @Bean
+    GameService gameService() {
+        return new GameServiceImpl();
     }
 
-    @Bean(name = "/booking")
+    @Bean(name = "/game")
     RemoteExporter hessianService() {
         HessianServiceExporter exporter = new HessianServiceExporter();
-        exporter.setService(bookingService());
-        exporter.setServiceInterface(CabBookingService.class);
+        exporter.setService(gameService());
+        exporter.setServiceInterface(GameService.class);
         return exporter;
     }
 

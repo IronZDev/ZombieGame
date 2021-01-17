@@ -3,7 +3,7 @@ package com.zombie.desktop;
 import com.badlogic.gdx.Files;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import com.zombie.api.CabBookingService;
+import com.zombie.api.GameService;
 import com.zombie.client.Main;
 import com.zombie.client.utils.Constants;
 import org.springframework.boot.SpringApplication;
@@ -23,12 +23,12 @@ public class DesktopLauncher implements EmbeddedServletContainerCustomizer {
 	@Bean
 	public HessianProxyFactoryBean hessianInvoker() {
 		HessianProxyFactoryBean invoker = new HessianProxyFactoryBean();
-		invoker.setServiceUrl("http://localhost:8032/booking");
-		invoker.setServiceInterface(CabBookingService.class);
+		invoker.setServiceUrl("http://localhost:8032/game");
+		invoker.setServiceInterface(GameService.class);
 		return invoker;
 	}
 	public static void main (String[] arg) {
-		CabBookingService service = SpringApplication.run(DesktopLauncher.class).getBean(CabBookingService.class);
+		GameService service = SpringApplication.run(DesktopLauncher.class).getBean(GameService.class);
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		config.title="Zombie Defense";
 		config.width=Constants.GAME_WIDTH;
