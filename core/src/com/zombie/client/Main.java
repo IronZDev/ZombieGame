@@ -10,12 +10,10 @@ public class Main extends Game {
 
 	public Main(GameService service) {
 		this.service = service;
-		try {
-			int ID = service.connectPlayer();
-			System.out.println(ID);
-		} catch (GameSessionException e) {
-			e.printStackTrace();
-		}
+	}
+
+	public GameService getGameService() {
+		return service;
 	}
 
 	@Override

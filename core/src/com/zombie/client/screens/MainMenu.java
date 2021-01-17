@@ -30,7 +30,7 @@ public class MainMenu implements Screen, InputProcessor {
     private Main game;
     private BitmapFont fontNotActive, fontActive;
     private int choice = 1;
-    private Label play, scoreboard, exit;
+    private Label singleplayer, multiplayer, scoreboard, exit;
     Label.LabelStyle labelStyleActive, labelStyleNotActive;
     private boolean toExit = false;
     private Texture background = new Texture(Gdx.files.internal(Constants.MAIN_MENU_IMAGE_PATH));
@@ -66,12 +66,15 @@ public class MainMenu implements Screen, InputProcessor {
         labelStyleActive = new Label.LabelStyle();
         labelStyleActive.font = fontActive;
 
-        play = new Label("Play", labelStyleActive);
+        singleplayer = new Label("Singleplayer", labelStyleActive);
+        multiplayer = new Label("Multiplayer", labelStyleNotActive);
         scoreboard = new Label("Scoreboard", labelStyleNotActive);
         exit = new Label("Exit", labelStyleNotActive);
 
         table = new Table();
-        table.add(play).padTop(250);
+        table.add(singleplayer).padTop(250);
+        table.row().padTop(25);
+        table.add(multiplayer);
         table.row().padTop(25);
         table.add(scoreboard);
         table.row().padTop(25);
@@ -98,14 +101,17 @@ public class MainMenu implements Screen, InputProcessor {
     }
 
     public void updateGraphics(){
-        play.setStyle(labelStyleNotActive);
+        singleplayer.setStyle(labelStyleNotActive);
+        multiplayer.setStyle(labelStyleNotActive);
         exit.setStyle(labelStyleNotActive);
         scoreboard.setStyle(labelStyleNotActive);
         if (choice == 1)
-            play.setStyle(labelStyleActive);
+            singleplayer.setStyle(labelStyleActive);
         else if (choice == 2)
-            scoreboard.setStyle(labelStyleActive);
+            multiplayer.setStyle(labelStyleActive);
         else if (choice == 3)
+            scoreboard.setStyle(labelStyleActive);
+        else if (choice == 4)
             exit.setStyle(labelStyleActive);
         table.invalidate();
     }
@@ -134,7 +140,7 @@ public class MainMenu implements Screen, InputProcessor {
     public boolean keyDown(int keycode) {
         if (keycode==Input.Keys.UP && choice>1)
             choice--;
-        if (keycode==Input.Keys.DOWN && choice<3)
+        if (keycode==Input.Keys.DOWN && choice<4)
             choice++;
         if (keycode==Input.Keys.SPACE || keycode==Input.Keys.ENTER){
             if (choice == 1) {
@@ -143,9 +149,13 @@ public class MainMenu implements Screen, InputProcessor {
             }
             if (choice == 2) {
                 dispose();
+                game.setScreen(new WaitingForOpponent(game));
+            }
+            if (choice == 3) {
+                dispose();
                 game.setScreen(new Scoreboard(game));
             }
-            if (choice == 3)
+            if (choice == 4)
                 toExit=true;
         }
         return false;
