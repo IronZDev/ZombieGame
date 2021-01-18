@@ -31,10 +31,14 @@ public class Constants {
     public static final float HEALTH_COUNTER_X = DEFENDER_X;
     public static final float HEALTH_COUNTER_Y = GAME_HEIGHT - 50;
 
+    public static final float OPPONENT_HEALTH_COUNTER_X = GAME_WIDTH - DEFENDER_X - 75;
+
     public static final int HEALTH = 3;
 
-    public static final float SCORE_COUNTER_X = GAME_WIDTH - 200;
-    public static final float SCORE_COUNTER_Y = GAME_HEIGHT - 15;
+    public static final float SCORE_COUNTER_X = HEALTH_COUNTER_X;
+    public static final float SCORE_COUNTER_Y = GAME_HEIGHT - 100;
+
+    public static final float OPPONENT_SCORE_COUNTER_X = OPPONENT_HEALTH_COUNTER_X - 100;
 
     public static final float ENEMY_WIDTH = 6.25f;
     public static final float ENEMY_HEIGHT = 12.5f;

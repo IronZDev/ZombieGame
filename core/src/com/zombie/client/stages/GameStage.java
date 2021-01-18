@@ -43,7 +43,7 @@ public class GameStage extends Stage implements ContactListener{
         Gdx.input.setInputProcessor(this);
     }
 
-    private void setUpWorld() {
+    public void setUpWorld() {
         world = WorldUtils.createWorld();
         world.setContactListener(this);
         AssetManager.initialize();
@@ -59,7 +59,7 @@ public class GameStage extends Stage implements ContactListener{
     private void setUpDefender() {
         defender = new Defender(WorldUtils.createDefender(world),AssetManager.getTextureAtlas());
         addActor(defender);
-        addActor(new HealthCounter(AssetManager.getTextureAtlas()));
+        addActor(new HealthCounter(AssetManager.getTextureAtlas(), AssetManager.getFont()));
     }
 
     private void setupCamera() {
@@ -96,7 +96,6 @@ public class GameStage extends Stage implements ContactListener{
     }
 
     private void updateGameActors() {
-
         Array<Actor> activeActors = this.getActors();
         activeGameActors = new ArrayList<GameActor>();
         for (Actor actor : activeActors)

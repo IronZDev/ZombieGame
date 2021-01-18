@@ -79,8 +79,8 @@ public class WaitingForOpponent implements Screen, InputProcessor {
             playerID = service.connectPlayer();
         } catch (GameSessionException ex) {
 //            ex.printStackTrace();
-            dispose();
-            game.setScreen(new MainMenu(game));
+//            dispose();
+//            game.setScreen(new MainMenu(game));
             sessionFull = true;
         }
     }
@@ -165,7 +165,7 @@ public class WaitingForOpponent implements Screen, InputProcessor {
             }
             if (playerList != null && playerList.size() == 2) {
                 dispose();
-                game.setScreen(new GameScreenMultiplayer(game));
+                game.setScreen(new GameScreenMultiplayer(game, playerID));
                 return;
             }
             System.out.println(playerID);

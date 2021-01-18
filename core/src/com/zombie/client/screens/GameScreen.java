@@ -20,11 +20,12 @@ import com.zombie.client.Main;
 import com.zombie.client.actors.HealthCounter;
 import com.zombie.client.actors.ScoreCounter;
 import com.zombie.client.stages.GameStage;
+import com.zombie.client.stages.MultiPlayerGameStage;
 import com.zombie.client.utils.Constants;
 
 public class GameScreen implements Screen {
-    private GameStage stage;
-    private Main game;
+    public GameStage stage;
+    public Main game;
 
     private BitmapFont font100, font24;
     private Stage stagePause;
@@ -40,7 +41,7 @@ public class GameScreen implements Screen {
         setUpPause();
     }
 
-    private void setUpPause() {
+    public void setUpPause() {
         batch = new SpriteBatch();
         Viewport viewport = new ScalingViewport(Scaling.stretch, Constants.GAME_WIDTH, Constants.GAME_HEIGHT,
                 new OrthographicCamera(Constants.VIEWPORT_WIDTH, Constants.VIEWPORT_HEIGHT));
