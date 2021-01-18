@@ -20,7 +20,6 @@ public class GameSession {
 
     public void disconnectPlayer(int playerID) {
         playerList.remove(playerList.get(playerID));
-        playerList.get(0).setPlayerStatus(PlayerStatus.WAITING);
     }
 
     public ArrayList<Player> getSessionInfo() {

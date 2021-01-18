@@ -72,9 +72,23 @@ public class GameServiceImpl implements GameService {
                 throw new GameSessionException("No player with ID: " + playerID);
             }
             player.setPlayerStatus(status);
+            if (checkIfBothDisconnected()) {
+                gameSession = new GameSession();
+            }
         } catch (IndexOutOfBoundsException ex) {
             throw new GameSessionException("No player with ID: " + playerID);
         }
+    }
+
+    private boolean checkIfBothDisconnected() {
+        boolean bothDisconnected = true;
+        for (Player player: gameSession.getSessionInfo()) {
+            if (player.getPlayerStatus() != PlayerStatus.DISCONNECTED) {
+                bothDisconnected = false;
+                break;
+            }
+        }
+        return bothDisconnected;
     }
 
     @Override

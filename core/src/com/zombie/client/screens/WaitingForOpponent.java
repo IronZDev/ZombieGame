@@ -14,7 +14,6 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Container;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Scaling;
 import com.badlogic.gdx.utils.viewport.ScalingViewport;
@@ -30,7 +29,6 @@ import java.util.ArrayList;
 public class WaitingForOpponent implements Screen, InputProcessor {
     private Viewport viewport;
     private Stage stage;
-    private Table table;
     private Container titleContainer, returnContainer;
     private Main game;
     private BitmapFont fontNotActive, fontActive, fontTitle;
@@ -88,6 +86,11 @@ public class WaitingForOpponent implements Screen, InputProcessor {
     @Override
     public boolean keyDown(int keycode) {
         dispose();
+        try {
+            service.disconnectPlayer(playerID);
+        } catch (GameSessionException ex) {
+            ex.printStackTrace();
+        }
         game.setScreen(new MainMenu(game));
         return false;
     }
